@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import {HomePage} from './pages/HomePage'
-import { RobotIndex } from './pages/RobotIndex'
+import { StoryIndex } from './pages/StoryIndex'
 // import './App.css'
 
 export const RootCmp: FC = () => {
@@ -11,7 +11,7 @@ export const RootCmp: FC = () => {
       <main>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/robot' element={<RobotIndex />} />
+          <Route path='/story' element={<StoryIndex />} />
         </Routes>
       </main>
     </div>
