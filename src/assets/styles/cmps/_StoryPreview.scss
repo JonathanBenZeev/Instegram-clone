@@ -4,7 +4,13 @@
   flex-direction: column;
   font-weight: 600;
   width: 470px;
-  gap: 12px;
+  gap: 10px;
+  border-block-end: 1px solid rgba(104, 102, 102, 0.397);
+
+  // &:last-child{
+  //   margin-block-end: 10px;
+  // }
+  margin-block-end: 10px;
 
   .story-header {
     display: flex;
@@ -45,15 +51,35 @@
     display: flex;
     justify-content: space-between;
     svg {
-        cursor: pointer;
-      &:hover{
+      cursor: pointer;
+      &:hover {
         opacity: 0.5;
       }
     }
-    .left-actions {
+    .start-actions {
       display: flex;
       align-items: center;
       gap: 15px;
     }
+  }
+  .likes {
+    font-weight: 600;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 0;
+    p {
+      margin: 0;
+    }
+  }
+  .post-headline {
+    .story-name {
+      font-weight: 600;
+      margin-inline-end: 5px;
+    }
+    .story-txt {
+      font-weight: 400;
+    }
+    margin-bottom: 15px;
   }
 }

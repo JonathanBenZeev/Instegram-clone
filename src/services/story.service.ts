@@ -81,7 +81,7 @@ function _createstories(): void {
                 imgUrl: "https://res-console.cloudinary.com/dmldeettg/thumbnails/v1/image/upload/v1696155391/Y2xkLXNhbXBsZS0z/grid_landscape", 
                 by: {
                   _id: "u101",
-                  fullname: "Ulash Ulashi",
+                  fullname: "Ybz",
                   imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                 },
                 loc: { // Optional
@@ -136,7 +136,7 @@ function _createstories(): void {
                 imgUrl: "https://res-console.cloudinary.com/dmldeettg/thumbnails/v1/image/upload/v1696155391/Y2xkLXNhbXBsZS0z/grid_landscape", 
                 by: {
                   _id: "u102",
-                  fullname: "Yoni Uli",
+                  fullname: "LU_bohem",
                   imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                 },
                 loc: { // Optional
