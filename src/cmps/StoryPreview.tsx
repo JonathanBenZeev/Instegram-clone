@@ -56,6 +56,18 @@ export function StoryPreview({ story, onRemoveStory }: StoryPreviewProps) {
         <span className='story-name'>{by.fullname}</span>
         <span className='story-txt'>{story.txt}</span>
       </div>
+      <div className='comments'>
+        <p>View all {story.comments.length} comments</p>
+      </div>
+      {story.comments.slice(0, 2).map((comment) => (
+        <div key={comment.id} className='post-headline'>
+          <span className='story-name'>{comment.by.fullname}</span>
+          <span className='story-txt'>{comment.txt}</span>
+        </div>
+      ))}
+      <div className="comment-input">
+        <input type="text"  placeholder='Add a comment...'/>
+      </div>
     </article>
   )
 }
