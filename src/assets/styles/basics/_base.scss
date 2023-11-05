@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-family: cereal-regular;
+  line-height: 1.6;
+  color: $clr2;
+}
+
+body {
+  font-size: rem(18px);
+  // margin: 0;
+  // margin: auto;
+  // background-color: blueviolet;
+  background-color: green;
+  overflow-x: hidden;
+}
+
+.App{
+  // margin: 0;
+  margin: auto;
+  max-width: rem(1344px) ;
+
+  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: caveat;
+  margin: 0 0 0.6em;
+  line-height: 1;
+  overflow-wrap: break-word;
+}
+
+section,
+main,
+footer {
+  padding: 5px;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  margin: 0 0 1em;
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+  color: #4f3a65;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+hr{
+  margin: 0;
+  margin-top: 5px;
+  position:absolute ;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border: 1px solid #0000001a;
+ 
+}
