@@ -1,0 +1,59 @@
+.story-preview {
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+  font-weight: 600;
+  width: 470px;
+  gap: 12px;
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      cursor: pointer;
+      padding: 0 5px;
+    }
+    img {
+      border-radius: 50%;
+      cursor: pointer;
+      height: 26px;
+      object-fit: cover;
+      width: 26px;
+      margin-inline-end: 5px;
+    }
+    .by-user {
+      display: flex;
+      align-items: center;
+    }
+    .time {
+      color: #8e8e8e;
+      span {
+        padding-inline-end: 5px;
+      }
+    }
+  }
+  .img-container {
+    // border: 1px solid black;
+    img {
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: space-between;
+    svg {
+        cursor: pointer;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    .left-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+}

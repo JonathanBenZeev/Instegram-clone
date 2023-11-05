@@ -78,11 +78,11 @@ function _createstories(): void {
             {
                 _id: "s101",
                 txt: "Best trip ever",
-                imgUrl: "http://some-img", 
+                imgUrl: "https://res-console.cloudinary.com/dmldeettg/thumbnails/v1/image/upload/v1696155391/Y2xkLXNhbXBsZS0z/grid_landscape", 
                 by: {
                   _id: "u101",
                   fullname: "Ulash Ulashi",
-                  imgUrl: "http://some-img"
+                  imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                 },
                 loc: { // Optional
                   lat: 11.11, 
@@ -95,14 +95,14 @@ function _createstories(): void {
                     by: {
                       _id: "u105",
                       fullname: "Bob",
-                      imgUrl: "http://some-img"
+                      imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                     },
                     txt: "good one!",
                     likedBy: [ // Optional
                       {
                         "_id": "u105",
                         "fullname": "Bob",
-                        "imgUrl": "http://some-img"
+                        "imgUrl": "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                       }
                     ]
                   },
@@ -111,7 +111,7 @@ function _createstories(): void {
                     by: {
                       _id: "u106",
                       fullname: "Dob",
-                      imgUrl: "http://some-img"
+                      imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                     },
                     txt: "not good!",
                   }
@@ -120,12 +120,12 @@ function _createstories(): void {
                   {
                     _id: "u105",
                     fullname: "Bob",
-                    imgUrl: "http://some-img"
+                    imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                   },
                   {
                     _id: "u106",
                     fullname: "Dob",
-                    imgUrl: "http://some-img"
+                    imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                   }
                 ],
                 tags: ["fun", "romantic"]
@@ -133,11 +133,11 @@ function _createstories(): void {
             {
                 _id: "s102",
                 txt: "Best game!",
-                imgUrl: "http://some-img", 
+                imgUrl: "https://res-console.cloudinary.com/dmldeettg/thumbnails/v1/image/upload/v1696155391/Y2xkLXNhbXBsZS0z/grid_landscape", 
                 by: {
                   _id: "u102",
                   fullname: "Yoni Uli",
-                  imgUrl: "http://some-img"
+                  imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                 },
                 loc: { // Optional
                   lat: 11.11, 
@@ -150,14 +150,14 @@ function _createstories(): void {
                     by: {
                       _id: "u105",
                       fullname: "Bob",
-                      imgUrl: "http://some-img"
+                      imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                     },
                     txt: "good one!",
                     likedBy: [ // Optional
                       {
                         "_id": "u105",
                         "fullname": "Bob",
-                        "imgUrl": "http://some-img"
+                        "imgUrl": "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                       }
                     ]
                   },
@@ -166,7 +166,7 @@ function _createstories(): void {
                     by: {
                       _id: "u106",
                       fullname: "Dob",
-                      imgUrl: "http://some-img"
+                      imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                     },
                     txt: "not good!",
                   }
@@ -175,12 +175,12 @@ function _createstories(): void {
                   {
                     _id: "u105",
                     fullname: "Bob",
-                    imgUrl: "http://some-img"
+                    imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                   },
                   {
                     _id: "u106",
                     fullname: "Dob",
-                    imgUrl: "http://some-img"
+                    imgUrl: "https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png"
                   }
                 ],
                 tags: ["fun", "romantic"]

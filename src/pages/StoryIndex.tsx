@@ -19,6 +19,7 @@ export function StoryIndex() {
   return (
     <section className='story-index'>
       <StoryList onRemoveStory={onRemoveStory} stories={stories} />
+      {/* <div>Another thing</div> */}
     </section>
   )
 }

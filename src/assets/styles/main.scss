@@ -6,11 +6,13 @@
 //Basics
 @import 'basics/base';
 @import 'basics/helpers';
+@import "basics/layout";
 //Pages
-// @import 'pages/home-page';
+@import 'pages/StoryIndex';
 // @import 'pages/stay-details';
 //Components
-// @import 'cmps/app-header';
+@import 'cmps/SideBar';
+@import 'cmps/StoryPreview';
 // @import 'cmps/filter-scroll';
 // @import 'cmps/galley';
 // @import 'cmps/stay-list';
