@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom'
 
 import { Story } from '../interfaces/story.ts'
 import { HeartSvg, MessageSvg, PostSvg, SaveSvg, ActionSvg } from './Svg'
+import { useState } from 'react'
 export interface StoryPreviewProps {
   story: Story
   onRemoveStory: (storyId: string) => Promise<void>
 }
 export function StoryPreview({ story, onRemoveStory }: StoryPreviewProps) {
-  console.log('story:', story)
+  const [storyComment, setStoryComment] = useState<string>('')
 
-  const { by } = story
+  const { by, comments, imgUrl } = story
   return (
     <article className='story-preview'>
       <div className='story-header'>
@@ -28,7 +29,7 @@ export function StoryPreview({ story, onRemoveStory }: StoryPreviewProps) {
         </span>
       </div>
       <div className='img-container'>
-        <img src={story.imgUrl} alt='' />
+        <img src={imgUrl} alt='' />
       </div>
       <section className='actions-container'>
         <div className='start-actions'>
@@ -57,16 +58,22 @@ export function StoryPreview({ story, onRemoveStory }: StoryPreviewProps) {
         <span className='story-txt'>{story.txt}</span>
       </div>
       <div className='comments'>
-        <p>View all {story.comments.length} comments</p>
+        <p>View all {comments.length} comments</p>
       </div>
-      {story.comments.slice(0, 2).map((comment) => (
+      {comments.slice(0, 2).map((comment) => (
         <div key={comment.id} className='post-headline'>
           <span className='story-name'>{comment.by.fullname}</span>
           <span className='story-txt'>{comment.txt}</span>
         </div>
       ))}
-      <div className="comment-input">
-        <input type="text"  placeholder='Add a comment...'/>
+      <div className='comment-input'>
+        <input
+          type='text'
+          value={storyComment}
+          placeholder='Add a comment...'
+          onChange={(ev) => setStoryComment(ev.target.value)}
+        />
+        {storyComment && <p className='post-btn'> Post</p>}
       </div>
     </article>
   )

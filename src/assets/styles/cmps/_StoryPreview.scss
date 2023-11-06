@@ -86,12 +86,23 @@
       font-weight: 400;
     }
   }
-  .comment-input{
+  .comment-input {
+    display: flex;
     margin-bottom: 15px;
-    input{
+    justify-content: space-between;
+
+    input {
       all: unset;
       font-weight: 400;
-
     }
+    .post-btn {
+      color: rgb(10 153 246);
+      font-weight: 700;
+      cursor: pointer;
+      &:hover{
+        color: #083d70;
+      }
+    }
+
   }
 }

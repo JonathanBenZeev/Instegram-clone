@@ -1,10 +1,4 @@
 
-export interface MiniUser {
-    _id: string
-    fullname: string
-    imgUrl: string
-}
-
 export interface User {
   _id: string
   username: string
@@ -16,6 +10,12 @@ export interface User {
   savedStoryIds: string[]
   
 }
+export interface MiniUser {
+    _id: string
+    fullname: string
+    imgUrl: string
+}
+
 export interface UserMsg {
   type: string
   txt: string

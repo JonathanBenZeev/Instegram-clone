@@ -1,4 +1,4 @@
-import { story, storyFilter } from '../interfaces/story'
+import { Story, storyFilter } from '../interfaces/story'
 import { storageService } from './async-storage.service'
 import { utilService } from './util.service'
 
@@ -15,8 +15,8 @@ export const storyService = {
 const STORAGE_KEY = 'stories'
 _createstories()
 
-async function query(): Promise<story[]> {
- return await storageService.query<story>(STORAGE_KEY)
+async function query(): Promise<Story[]> {
+ return await storageService.query<Story>(STORAGE_KEY)
     // if (filterBy) {
     //     let { type, maxBattery, minBattery, model } = filterBy
     //     if (!maxBattery) maxBattery = Infinity
@@ -30,15 +30,15 @@ async function query(): Promise<story[]> {
     // return stories
 }
 
-function getById(storyId: string): Promise<story> {
-    return storageService.get<story>(STORAGE_KEY, storyId)
+function getById(storyId: string): Promise<Story> {
+    return storageService.get<Story>(STORAGE_KEY, storyId)
 }
 
 function remove(storyId: string): Promise<void> {
     return storageService.remove(STORAGE_KEY, storyId)
 }
 
-function save(storyToSave: story): Promise<story> {
+function save(storyToSave: Story): Promise<Story> {
     if (storyToSave._id) {
         return storageService.put(STORAGE_KEY, storyToSave)
     } else {
@@ -46,7 +46,7 @@ function save(storyToSave: story): Promise<story> {
     }
 }
 
-function createstory(model = '', type = ''): Partial<story> {
+function createstory(model = '', type = ''): Partial<Story> {
     return {
         model,
         type,
@@ -55,7 +55,7 @@ function createstory(model = '', type = ''): Partial<story> {
 }
 
 async function getNextstoryId(storyId: string) {
-    const stories = await storageService.query<story>(STORAGE_KEY)
+    const stories = await storageService.query<Story>(STORAGE_KEY)
     const idx = stories.findIndex(story => story._id === storyId)
     let nextIdx = idx + 1
     if (nextIdx === stories.length) nextIdx = 0
