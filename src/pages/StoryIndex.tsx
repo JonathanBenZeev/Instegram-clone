@@ -7,6 +7,9 @@ import { RootState } from '../store/store'
 
 export function StoryIndex() {
   const stories = useSelector((state: RootState) => state.storyModule.stories)
+  const user = useSelector((state: RootState) => state.userModule.loggedInUser)
+  console.log(user);
+  
   useEffect(() => {
     loadStories()
   }, [])

@@ -4,10 +4,10 @@ export interface User {
   username: string
   password: string
   fullname: string
-  imgUrl: string
-  following: MiniUser[]
-  followers: MiniUser[]
-  savedStoryIds: string[]
+  imgUrl?: string
+  following?: MiniUser[]
+  followers?: MiniUser[]
+  savedStoryIds?: string[]
   
 }
 export interface MiniUser {

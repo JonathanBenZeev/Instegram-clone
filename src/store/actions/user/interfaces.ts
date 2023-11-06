@@ -1,16 +1,23 @@
+import { User } from './../../../interfaces/user'
 export enum UserActionType {
-    SET_USER_MSG = 'SET_USER_MSG',
-    SPEND_BALANCE = 'SPEND_BALANCE'
+  // SET_USER_MSG = 'SET_USER_MSG',
+  SPEND_BALANCE = 'SPEND_BALANCE',
+  SET_USER = 'SET_USER',
 }
 
 export interface SpendBalanceAction {
-    type: UserActionType.SPEND_BALANCE
-    amount: number
+  type: UserActionType.SPEND_BALANCE
+  amount: number
 }
 
-export interface SetUserMsgAction {
-    type: UserActionType.SET_USER_MSG
-    userMsg: UserMsg | null
+export interface LoginAction {
+  type: UserActionType.SET_USER
+  user: User
 }
 
-export type UserAction = SpendBalanceAction | SetUserMsgAction
+export interface SignupAction {
+  type: UserActionType.SET_USER
+  user: User
+}
+
+export type UserAction = SpendBalanceAction | SignupAction | LoginAction

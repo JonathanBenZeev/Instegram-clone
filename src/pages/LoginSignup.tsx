@@ -1,37 +1,19 @@
 import { useEffect, useState } from 'react'
-import { useMutation, useQueryClient } from 'react-query'
 import { useLocation, Link, useNavigate } from 'react-router-dom'
-import { login, signup } from '../services/user.service'
-// import { UserModel } from '../Models/User.Model'
+import { login, signup } from '../store/actions/user/user.actions'
 
-export const LoginSignup = (): JSX.Element => {
+export const LoginSignup = () => {
   const { pathname } = useLocation()
   const [isSignup, setIsSignup] = useState(false)
   const navigate = useNavigate()
-  // const queryClient = useQueryClient()
-  
-  const signupMutation = useMutation({
-    mutationFn: signup,
-    onSuccess: () => {
-      navigate('/build-stay')
-    },
-  })
-  
-  const loginMutation = useMutation({
-    mutationFn: login,
-    onSuccess: () => {
-      navigate('/')
-    },
-  })
-
   const [credentials, setCredentials] = useState({
-    userName: '',
+    username: '',
     password: '',
     fullname: '',
-    email: '',
+    _id: '',
   })
 
-  const onIsSignup = (): void => {
+  const onIsSignup = () => {
     if (pathname === '/signup') setIsSignup(true)
     else setIsSignup(false)
   }
@@ -49,36 +31,30 @@ export const LoginSignup = (): JSX.Element => {
 
   const clearFields = () => {
     setCredentials({
-      userName: '',
+      username: '',
       password: '',
       fullname: '',
-      email: '',
+      _id: '',
     })
   }
 
   const onSignUp = async (ev: React.FormEvent<HTMLFormElement>) => {
     if (ev) ev.preventDefault()
-    if (
-      !credentials.userName ||
-      !credentials.password ||
-      !credentials.fullname ||
-      !credentials.email
-    )
+    if (!credentials.username || !credentials.password || !credentials.fullname)
       return
     try {
-      signupMutation.mutateAsync(credentials)
-      // navigate('/')
+      await signup(credentials)
+      navigate('/')
     } catch (err) {
       console.log('Signup failed', err)
     }
   }
   const onLogin = async (ev: React.FormEvent<HTMLFormElement>) => {
     if (ev) ev.preventDefault()
-    if (!credentials.userName || !credentials.password) return
+    if (!credentials.username || !credentials.password) return
     try {
-      // await login(credentials)
-      loginMutation.mutateAsync(credentials)
-      // navigate('/')
+      await login(credentials)
+      navigate('/')
     } catch (err) {
       console.log('Logged in failed', err)
     }
@@ -101,15 +77,6 @@ export const LoginSignup = (): JSX.Element => {
                 value={credentials.fullname}
                 onChange={handleChange}
               />
-              <input
-                type='email'
-                id='email'
-                name='email'
-                placeholder='Enter email address'
-                value={credentials.email}
-                onChange={handleChange}
-                required
-              />
             </>
           ) : (
             <h1>Login to Kishor</h1>
@@ -117,9 +84,9 @@ export const LoginSignup = (): JSX.Element => {
           <input
             type='text'
             id='username'
-            name='userName'
+            name='username'
             placeholder='Enter username'
-            value={credentials.userName}
+            value={credentials.username}
             onChange={handleChange}
           />
           <input
