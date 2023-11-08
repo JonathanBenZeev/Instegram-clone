@@ -23,7 +23,7 @@ export interface SetStoriesAction {
   stories: Story[]
 }
 
-interface UpdateStoryAction {
+export interface UpdateStoryAction {
   type: StoryActionType.UPDATE_STORY
   story: Story
 }

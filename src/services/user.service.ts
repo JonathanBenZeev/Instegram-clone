@@ -60,6 +60,10 @@ async function signup(userCred: User) {
     userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
+  userCred.followers = []
+  userCred.following = []
+  userCred.savedStoryIds = []
+
   const user = await storageService.post('user', userCred)
   // const user = await httpService.post('auth/signup', userCred)
   return saveLocalUser(user)

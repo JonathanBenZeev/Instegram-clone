@@ -13,7 +13,7 @@ export interface User {
 export interface MiniUser {
     _id: string
     fullname: string
-    imgUrl: string
+    imgUrl?: string
 }
 
 export interface UserMsg {

@@ -1,7 +1,6 @@
-import { MiniUser } from './user';
+import { MiniUser } from './user'
 
-
-interface Comment {
+export interface Comment {
   id: string
   by: MiniUser
   txt: string
@@ -24,4 +23,3 @@ export interface Story {
   likedBy: MiniUser[]
   tags: string[]
 }
-

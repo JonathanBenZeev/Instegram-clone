@@ -8,7 +8,7 @@ export const storageService = {
 
 function query<T extends { _id: string }>(
   entityType: string,
-  delay = 1500
+  delay = 0
 ): Promise<T[]> {
   const storedEntities = localStorage.getItem(entityType)
   const entities: T[] = storedEntities ? JSON.parse(storedEntities) : []
