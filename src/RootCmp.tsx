@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { StoryIndex } from './pages/StoryIndex'
 import { SideBar } from './cmps/SideBar'
 import { LoginSignup } from './pages/LoginSignup'
+import { StoryDetails } from './pages/StoryDetails'
 // import './App.css'
 
 export const RootCmp: FC = () => {
@@ -12,6 +13,9 @@ export const RootCmp: FC = () => {
       <SideBar />
       <main className='m-a'>
         <Routes>
+          <Route path='/post' element={<StoryIndex />}>
+            <Route path='/post/:storyId' element={<StoryDetails />} />
+          </Route>
           {/* <Route path='/' element={<HomePage />} /> */}
           <Route path='/' element={<StoryIndex />} />
           <Route path='/signup' element={<LoginSignup />} />

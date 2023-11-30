@@ -77,7 +77,7 @@ function makeComment(comment: string, user: User): Comment {
   return {
     id: utilService.makeId(),
     txt: comment,
-    by: { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl },
+    by: { _id: user._id, fullname: user.fullname,username:user.username, imgUrl: user.imgUrl },
     likedBy: [],
   }
 }
@@ -90,10 +90,11 @@ function _createstories(): void {
         _id: 's101',
         txt: 'Best trip ever',
         imgUrl:
-          'https://res-console.cloudinary.com/dmldeettg/thumbnails/v1/image/upload/v1696155391/Y2xkLXNhbXBsZS0z/grid_landscape',
+          'https://res.cloudinary.com/dmldeettg/image/upload/v1696155391/cld-sample-3.jpg',
         by: {
           _id: 'u101',
           fullname: 'Ybz',
+          username:'tal_12',
           imgUrl:
             'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
         },
@@ -109,6 +110,7 @@ function _createstories(): void {
             by: {
               _id: 'u105',
               fullname: 'Bob',
+              username:'bobzilla',
               imgUrl:
                 'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
             },
@@ -118,6 +120,7 @@ function _createstories(): void {
               {
                 _id: 'u105',
                 fullname: 'Bob',
+                username:'ss12',
                 imgUrl:
                   'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
               },
@@ -128,6 +131,7 @@ function _createstories(): void {
             by: {
               _id: 'u106',
               fullname: 'Dob',
+              username:'dodo',
               imgUrl:
                 'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
             },
@@ -138,18 +142,21 @@ function _createstories(): void {
           {
             _id: 'u105',
             fullname: 'Bob',
+            username:'tal_12',
             imgUrl:
               'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
           },
           {
             _id: 'Sc9vU',
             fullname: 'yoyo bu',
+            username:'aribz2',
             imgUrl:
               'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
           },
           {
             _id: 'u106',
             fullname: 'Dob',
+            username:'ybz6',
             imgUrl:
               'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
           },
@@ -158,12 +165,13 @@ function _createstories(): void {
       },
       {
         _id: 's102',
-        txt: 'Best game!',
+        txt: 'Very great breakfast!',
         imgUrl:
-          'https://res-console.cloudinary.com/dmldeettg/thumbnails/v1/image/upload/v1696155391/Y2xkLXNhbXBsZS0z/grid_landscape',
+          'https://res.cloudinary.com/dmldeettg/image/upload/v1696155391/cld-sample-4.jpg',
         by: {
           _id: 'u102',
           fullname: 'LU_bohem',
+          username:'lu',
           imgUrl:
             'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
         },
@@ -179,6 +187,7 @@ function _createstories(): void {
             by: {
               _id: 'u105',
               fullname: 'Bob',
+              username:'tal_12',
               imgUrl:
                 'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
             },
@@ -188,6 +197,7 @@ function _createstories(): void {
               {
                 _id: 'u105',
                 fullname: 'Bob',
+                username:'tal_12',
                 imgUrl:
                   'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
               },
@@ -198,6 +208,7 @@ function _createstories(): void {
             by: {
               _id: 'u106',
               fullname: 'Dob',
+              username:'tal_12',
               imgUrl:
                 'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
             },
@@ -208,12 +219,14 @@ function _createstories(): void {
           {
             _id: 'u105',
             fullname: 'Bob',
+            username:'tal_12',
             imgUrl:
               'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
           },
           {
             _id: 'u106',
             fullname: 'Dob',
+            username:'tal_12',
             imgUrl:
               'https://res.cloudinary.com/dmldeettg/image/upload/v1697302095/profile_phgx3i.png',
           },

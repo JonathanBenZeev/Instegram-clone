@@ -39,17 +39,16 @@ export function StoryPreview({
     if (!user) return
 
     const isLiked = story.likedBy.some((like) => like._id === user?._id)
-    console.log(isLiked)
-
-    if (isLiked) {
+    if (isLiked)
       story.likedBy = story.likedBy.filter((like) => like._id !== user?._id)
-    } else {
+    else
       story.likedBy.push({
         _id: user?._id,
         fullname: user?.fullname,
         imgUrl: user?.imgUrl,
+        username: user.username,
       })
-    }
+
     onSaveStory(story)
   }
 
@@ -62,13 +61,15 @@ export function StoryPreview({
   }
 
   const { by, comments, imgUrl } = story
+  console.log(imgUrl);
+  
   return (
     <article className='story-preview'>
       <div className='story-header'>
         <div className='by-user'>
           <img src={by.imgUrl} alt='profile' />
-          <Link to={by.fullname} className='story-user-name link'>
-            {by.fullname}
+          <Link to={by.username} className='story-user-name link'>
+            {by.username}
           </Link>
           <div className='time'>
             <span>•</span>
@@ -87,15 +88,15 @@ export function StoryPreview({
           <span className='like-btn' onClick={setLike}>
             {getLikeSvg()}
           </span>
-          <span>
+          <span className='message-btn'>
             <MessageSvg />
           </span>
-          <span>
+          <span className='post-btn'>
             <PostSvg />
           </span>
         </div>
         <div className='end-actions'>
-          <span>
+          <span className='save-btn'>
             <SaveSvg />
           </span>
         </div>
@@ -105,16 +106,18 @@ export function StoryPreview({
         <p>likes</p>
       </div>
       <div className='post-headline'>
-        <span className='story-name'>{by.fullname}</span>
+        <span className='story-name'>{by.username}</span>
         <span className='story-txt'>{story.txt}</span>
       </div>
       <div className='comments'>
-        <p>View all {comments.length} comments</p>
+        <Link to={`/post/${story._id}`}>
+          <p>View all {comments.length} comments</p>
+        </Link>
       </div>
       <div className='comments-preview'>
         {comments.slice(0, 2).map((comment) => (
           <div key={comment.id} className='post-headline'>
-            <span className='story-name'>{comment.by.fullname}</span>
+            <span className='story-name'>{comment.by.username}</span>
             <span className='story-txt'>{comment.txt}</span>
           </div>
         ))}

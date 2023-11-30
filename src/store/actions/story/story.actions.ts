@@ -17,6 +17,7 @@ export async function loadStories() {
 
 }
 
+
 export async function removeStory(storyId: string) {
     try {
         await storyService.remove(storyId)

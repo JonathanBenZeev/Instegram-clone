@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 import { Story } from '../interfaces/story'
+import { Outlet } from 'react-router-dom'
 
 export function StoryIndex() {
   const stories = useSelector((state: RootState) => state.storyModule.stories)
@@ -34,6 +35,7 @@ export function StoryIndex() {
         stories={stories}
         user={user}
       />
+      <Outlet />
       {/* <div>Another thing</div> */}
     </section>
   )

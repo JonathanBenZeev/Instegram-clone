@@ -1,0 +1,116 @@
+.story-details-wrapper {
+  border: 1px solid black;
+  font-weight: 600;
+  font-size: rem(14px);
+
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(31, 29, 29, 0.691);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-content: center;
+  // font-size: 16px;
+  word-wrap: break-word;
+  p {
+    font-weight: 400;
+  }
+  .exit-details {
+    position: absolute;
+    right: rem(25px);
+    top: rem(15px);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .story-details {
+    min-width: 80vw;
+    min-height: 90vh;
+    display: flex;
+
+    .img-container {
+      flex-grow: 1;
+      background-color: #181717;
+      display: grid;
+      place-content: center;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .comments-container {
+      word-break: break-word;
+      width: 40%;
+      background-color: rgb(255 255 255);
+      display: flex;
+      flex-direction: column;
+      gap: rem(7px);
+      // padding: rem(15px);
+      .post-header {
+        border-block-end: rem(1px) solid rgba(104, 102, 102, 0.397);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        > * {
+          padding: rem(15px);
+        }
+
+        a {
+          cursor: pointer;
+          padding: 0 rem(5px);
+        }
+        img {
+          border-radius: 50%;
+          cursor: pointer;
+          height: rem(30px);
+          object-fit: cover;
+          width: rem(30px);
+          margin-inline-end: rem(5px);
+        }
+        .by-user {
+          height: rem(70px);
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .post-body {
+        flex: 1;
+
+        .post-title {
+          display: flex;
+          padding: rem(15px);
+
+          img {
+            border-radius: 50%;
+            cursor: pointer;
+            height: rem(30px);
+            object-fit: cover;
+            width: rem(30px);
+            margin-inline-end: rem(10px);
+          }
+          .by-title {
+            margin-top: rem(5px);
+
+            .title {
+              font-weight: 400;
+            }
+          }
+          .time {
+            margin-top: rem(10px);
+            color: #8e8e8e;
+            font-weight: 350;
+          }
+        }
+      }
+    }
+  }
+}
