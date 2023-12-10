@@ -22,6 +22,9 @@ export const RootCmp: FC = () => {
           <Route path='/login' element={<LoginSignup />} />
         </Routes>
       </main>
+      <div>
+        yonatan ben zeev
+      </div>
     </div>
   )
 }

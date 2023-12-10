@@ -12,6 +12,7 @@ import { Story } from '../interfaces/story'
 import { Outlet } from 'react-router-dom'
 import { ActionModal } from '../cmps/ActionModal'
 import { DynamicModal } from '../cmps/DynamicModal'
+import { MiniUser } from '../interfaces/user'
 
 export interface ModalType {
   isOpen: boolean
@@ -21,9 +22,10 @@ export interface ModalType {
 export function StoryIndex() {
   const stories = useSelector((state: RootState) => state.storyModule.stories)
   const user = useSelector((state: RootState) => state.userModule.loggedInUser)
+  const [likedByUser, setLikeByUser] = useState<MiniUser[] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [dynamicModalProps, setDynamicModalProps] = useState<ModalType>({
-    isOpen: true,
+    isOpen: false,
     modalTitle: 'Likes',
   })
   useEffect(() => {
@@ -49,6 +51,10 @@ export function StoryIndex() {
   const onCloseActionModal = () => {
     setIsModalOpen(false)
   }
+  const getLikedByStory = (likedByStory: MiniUser[]) => {
+    setLikeByUser(likedByStory)
+    onOpenDynamicModal()
+  }
 
   if (!stories) return <div>Loading...</div>
   return (
@@ -58,6 +64,7 @@ export function StoryIndex() {
         <DynamicModal
           modalTitle={dynamicModalProps.modalTitle}
           onCloseDynamicModal={onCloseDynamicModal}
+          likedByStory={likedByUser}
         />
       )}
 
@@ -68,6 +75,7 @@ export function StoryIndex() {
         onSaveStory={onSaveStory}
         stories={stories}
         user={user}
+        getLikedByStory={getLikedByStory}
       />
       <Outlet />
       {/* <div>Another thing</div> */}

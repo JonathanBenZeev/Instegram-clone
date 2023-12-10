@@ -11,7 +11,7 @@ import {
   RedHeartSvg,
 } from './Svg'
 import { useState } from 'react'
-import { User } from '../interfaces/user'
+import { MiniUser, User } from '../interfaces/user'
 import { storyService } from '../services/story.service'
 export interface StoryPreviewProps {
   user: User | null
@@ -20,6 +20,8 @@ export interface StoryPreviewProps {
   onSaveStory: (story: Story) => Promise<void>
   onOpenModal: () => void
   onOpenLikesModal: () => void
+  getLikedByStory:(likedByStory:MiniUser[])=>void
+
 }
 export function StoryPreview({
   story,
@@ -27,7 +29,9 @@ export function StoryPreview({
   onRemoveStory,
   onSaveStory,
   onOpenModal,
-  onOpenLikesModal
+  onOpenLikesModal,
+  getLikedByStory
+
 }: StoryPreviewProps) {
   const [storyComment, setStoryComment] = useState<string>('')
 
@@ -105,7 +109,7 @@ export function StoryPreview({
           </span>
         </div>
       </section>
-      <div className='likes' onClick={onOpenLikesModal}>
+      <div className='likes' onClick={()=>getLikedByStory(story.likedBy)}>
         <span>{story.likedBy.length}</span>
         <p>likes</p>
       </div>

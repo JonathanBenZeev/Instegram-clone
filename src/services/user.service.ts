@@ -61,7 +61,14 @@ async function signup(userCred: User) {
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
 
   userCred.followers = []
-  userCred.following = []
+  userCred.following = [
+    {
+      _id: 'u106',
+      fullname: 'Dob',
+      username:'fdsfds',
+      imgUrl: 'http://some-img',
+    },
+  ]
   userCred.savedStoryIds = []
 
   const user = await storageService.post('user', userCred)

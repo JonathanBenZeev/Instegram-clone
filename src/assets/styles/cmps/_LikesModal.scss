@@ -1,0 +1,56 @@
+.like-modal {
+  margin-block-start: rem(15px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 400px;
+//   &:last-child{
+    margin-block-end: rem(15px);
+//   }
+  //   width: 400px;
+  //   padding: 10px;
+  .user-profile {
+    // width: 100px;
+    // height: 100px;
+    display: flex;
+    margin-inline-start: rem(15px);
+    img {
+      border-radius: 50%;
+      cursor: pointer;
+      height: rem(40px);
+      object-fit: cover;
+      width: rem(40px);
+      margin-inline-end: rem(10px);
+    }
+
+    .profile-name {
+      display: flex;
+      flex-direction: column;
+      //   align-items: center;
+      justify-content: center;
+
+      .username {
+        font-weight: 600;
+      }
+    }
+  }
+  .follow-action {
+    cursor: pointer;
+    margin-inline-end: rem(15px);
+    background-color: #0095f6;
+    border-radius: rem(8px);
+    color: #fff;
+    width: rem(81px);
+    height: rem(32px);
+    display: grid;
+    place-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    &.following{
+        width: rem(101px);
+        background-color: #efefef;
+        color: #2c2c2c;
+
+    }
+  }
+}

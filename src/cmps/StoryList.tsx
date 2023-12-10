@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { StoryPreview } from './StoryPreview'
 import { Story } from '../interfaces/story'
-import { User } from '../interfaces/user'
+import { MiniUser, User } from '../interfaces/user'
 
 export interface StoryListProps {
   stories: Story[]
@@ -10,6 +10,7 @@ export interface StoryListProps {
   onSaveStory: (story: Story) => Promise<void>
   onOpenModal: () => void
   onOpenLikesModal: () => void
+  getLikedByStory:(likedByStory:MiniUser[])=>void
 }
 
 export const StoryList: FC<StoryListProps> = ({
@@ -19,6 +20,7 @@ export const StoryList: FC<StoryListProps> = ({
   onSaveStory,
   onOpenModal,
   onOpenLikesModal,
+  getLikedByStory
 }) => {
   return (
     <section className='story-list simple-cards-grid'>
@@ -31,6 +33,7 @@ export const StoryList: FC<StoryListProps> = ({
           key={story._id}
           story={story}
           user={user}
+          getLikedByStory={getLikedByStory}
         />
       ))}
     </section>

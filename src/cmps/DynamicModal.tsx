@@ -1,19 +1,22 @@
+import { MiniUser } from '../interfaces/user'
 import { LikesModal } from './LikesModal'
 import { ExitSvg } from './Svg'
 
 export interface DynamicModalProps {
   modalTitle: string
   onCloseDynamicModal: () => void
+  likedByStory?: MiniUser[] | null
 }
 
 export const DynamicModal = ({
   modalTitle,
   onCloseDynamicModal,
+  likedByStory
 }: DynamicModalProps) => {
   const getCmp = () => {
     switch (modalTitle) {
       case 'Likes':
-        return <LikesModal />
+        return <LikesModal likedByStory={likedByStory} />
       default:
         return <LikesModal />
     }
