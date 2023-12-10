@@ -1,14 +1,24 @@
-.side-bar {
-    // background-color: red;
+.sidebar {
+    position: sticky;
+    top: 0;
     height: 100vh;
-    padding-inline-start: 12px;
-    padding-bottom: 20px;
-    padding-top: 8px;
-    border-inline-end: 1px solid rgba(104, 102, 102, 0.397);
-    // width: ;
-    // fle
+    width: rem(250px); // Adjust the width as needed
+    background-color: #fff; // Assuming a white background
+    display: flex;
+    flex-direction: column;
+    padding: rem(10px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Optional shadow for depth
 
-    .logo{
-        width: rem(196px);
+    .sidebar-item {
+        margin: 10px 0;
+        margin-inline-start: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: #f0f0f0;
+        }
+        display: flex;
+        align-items: center;
+        gap:10px ;
+        // justify-content: center;
     }
 }

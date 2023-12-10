@@ -20,6 +20,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .action-btn{
+      cursor: pointer;
+    }
     a {
       cursor: pointer;
       padding: 0 rem(5px);
@@ -56,11 +59,13 @@
     }
   }
 
+
   .comments {
     cursor: pointer;
   }
 
   .actions-container {
+
     display: flex;
     justify-content: space-between;
     svg {

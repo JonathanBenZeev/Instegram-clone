@@ -4,11 +4,14 @@ import { storyService } from '../services/story.service'
 import { Story } from '../interfaces/story'
 import { PostComments } from '../cmps/PostComments'
 import { ActionSvg, ExitSvg } from '../cmps/Svg'
+import { ActionModal } from '../cmps/ActionModal'
 
 export const StoryDetails = () => {
   const { storyId } = useParams()
   const navigate = useNavigate()
   const [story, setStory] = useState<Story | null>(null)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     loadStory()
@@ -23,6 +26,9 @@ export const StoryDetails = () => {
       navigate('/post')
     }
   }
+  const onCloseModal = () => {
+    setIsModalOpen(false)
+  }
 
   const getBackHome = () => {
     navigate('/post')
@@ -33,42 +39,48 @@ export const StoryDetails = () => {
 
   const { by, comments, imgUrl } = story
   return (
-    <section className='story-details-wrapper' onClick={getBackHome}>
-      <span onClick={getBackHome} className='exit-details'>
-        <ExitSvg />
-      </span>
-      <section className='story-details' onClick={(ev) => ev.stopPropagation()}>
-        <div className='img-container'>
-          <img src={story?.imgUrl} alt='post-img' />
-        </div>
-        <div className='comments-container'>
-          <header className='post-header'>
-            <div className='by-user'>
-              <img src={by.imgUrl} alt='profile' />
-              <Link to={by.username} className='story-user-name link'>
-                {by.username}
-              </Link>
-            </div>
-            <span>
-              <ActionSvg />
-            </span>
-          </header>
-          <main className='post-body'>
-            <div className='post-title'>
-              <img src={by.imgUrl} alt='profile' />
-              <section className='by-title'>
-                <span className='user'>{by.username}</span>&nbsp;
-                <span className='title'>{story.txt}</span>
-                <div className='time'>
-                  <time>1h</time>
-                </div>
-              </section>
-            </div>
-            <PostComments comments={story.comments} />
-          </main>
-          <footer className='post-footer'>fotter</footer>
-        </div>
+    <>
+      {isModalOpen && <ActionModal fromDetails={true} onCloseModal={onCloseModal} />}
+      <section className='story-details-wrapper' onClick={getBackHome}>
+        <span onClick={getBackHome} className='exit-details'>
+          <ExitSvg />
+        </span>
+        <section
+          className='story-details'
+          onClick={(ev) => ev.stopPropagation()}
+        >
+          <div className='img-container'>
+            <img src={story?.imgUrl} alt='post-img' />
+          </div>
+          <div className='comments-container'>
+            <header className='post-header'>
+              <div className='by-user'>
+                <img src={by.imgUrl} alt='profile' />
+                <Link to={by.username} className='story-user-name link'>
+                  {by.username}
+                </Link>
+              </div>
+              <span className='action-btn' onClick={()=>setIsModalOpen(true)}>
+                <ActionSvg />
+              </span>
+            </header>
+            <main className='post-body'>
+              <div className='post-title'>
+                <img src={by.imgUrl} alt='profile' />
+                <section className='by-title'>
+                  <span className='user'>{by.username}</span>&nbsp;
+                  <span className='title'>{story.txt}</span>
+                  <div className='time'>
+                    <time>1h</time>
+                  </div>
+                </section>
+              </div>
+              <PostComments comments={comments} />
+            </main>
+            <footer className='post-footer'>fotter</footer>
+          </div>
+        </section>
       </section>
-    </section>
+    </>
   )
 }

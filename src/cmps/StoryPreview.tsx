@@ -18,12 +18,16 @@ export interface StoryPreviewProps {
   story: Story
   onRemoveStory: (storyId: string) => Promise<void>
   onSaveStory: (story: Story) => Promise<void>
+  onOpenModal: () => void
+  onOpenLikesModal: () => void
 }
 export function StoryPreview({
   story,
   user,
   onRemoveStory,
   onSaveStory,
+  onOpenModal,
+  onOpenLikesModal
 }: StoryPreviewProps) {
   const [storyComment, setStoryComment] = useState<string>('')
 
@@ -61,8 +65,8 @@ export function StoryPreview({
   }
 
   const { by, comments, imgUrl } = story
-  console.log(imgUrl);
-  
+  // console.log(imgUrl)
+
   return (
     <article className='story-preview'>
       <div className='story-header'>
@@ -76,7 +80,7 @@ export function StoryPreview({
             <time>1h</time>
           </div>
         </div>
-        <span onClick={() => onRemoveStory(story._id)}>
+        <span className='action-btn' onClick={onOpenModal}>
           <ActionSvg />
         </span>
       </div>
@@ -101,7 +105,7 @@ export function StoryPreview({
           </span>
         </div>
       </section>
-      <div className='likes'>
+      <div className='likes' onClick={onOpenLikesModal}>
         <span>{story.likedBy.length}</span>
         <p>likes</p>
       </div>

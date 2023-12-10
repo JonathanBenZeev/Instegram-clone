@@ -29,6 +29,7 @@
     min-width: 80vw;
     min-height: 90vh;
     display: flex;
+    
 
     .img-container {
       flex-grow: 1;
@@ -54,6 +55,13 @@
       flex-direction: column;
       gap: rem(7px);
       // padding: rem(15px);
+      .action-btn{
+        cursor: pointer;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+
       .post-header {
         border-block-end: rem(1px) solid rgba(104, 102, 102, 0.397);
         display: flex;
