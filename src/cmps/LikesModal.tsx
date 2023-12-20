@@ -10,16 +10,12 @@ export function LikesModal({ likedByStory }: likesModalProps) {
   const user = useSelector((state: RootState) => state.userModule.loggedInUser)
 
   function getSortByFollowing() {
-    likedByStory.forEach((likedBy, idx) => {
-      if (user?.following?.some((follow) => follow._id === likedBy._id)) {
-        // likedByStory.unshift(likedBy)
-        const like = likedByStory.splice(idx, 1)[0]
-        likedByStory.unshift(like)
-      }
-
-      // else likedByStory.push(likedBy)
+    likedByStory.sort((likedBy) => {
+      if (user?.following?.some((follow) => follow._id === likedBy._id))
+        return -1
+      else return 1
     })
-    return likedByStory
+    return likedByStory.filter((like) => like._id !== user?._id)
   }
 
   const getBtn = (likedBy: MiniUser) => {

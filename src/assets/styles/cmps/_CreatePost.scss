@@ -1,0 +1,36 @@
+.create-post-container {
+  min-height: 500px;
+  display: grid;
+  place-content: center;
+  font-weight: 400;
+  font-size: 20px;
+  .create-post {
+    margin: 40px;
+
+    img {
+      width: 100%;
+    }
+
+    .create-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .add-btn {
+      cursor: pointer;
+      margin-inline-end: rem(15px);
+      background-color: #0095f6;
+      border-radius: rem(8px);
+      color: #fff;
+      width: rem(170px);
+      height: rem(32px);
+      display: grid;
+      place-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      margin: auto;
+      
+    }
+  }
+}

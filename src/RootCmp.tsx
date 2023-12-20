@@ -5,6 +5,7 @@ import { StoryIndex } from './pages/StoryIndex'
 import { SideBar } from './cmps/SideBar'
 import { LoginSignup } from './pages/LoginSignup'
 import { StoryDetails } from './pages/StoryDetails'
+import { FooterSideBar } from './cmps/FooterSideBar'
 // import './App.css'
 
 export const RootCmp: FC = () => {
@@ -22,9 +23,7 @@ export const RootCmp: FC = () => {
           <Route path='/login' element={<LoginSignup />} />
         </Routes>
       </main>
-      <div>
-        yonatan ben zeev
-      </div>
+      <FooterSideBar/>
     </div>
   )
 }

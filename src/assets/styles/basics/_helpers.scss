@@ -90,17 +90,27 @@
     cursor: pointer;
 }
 .avatar {
-    width: 3.75rem;
-    height: 3.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    height: rem(30px);
     object-fit: cover;
-    border-radius: 55px;
-    &.sm {
-        width: 2.75rem;
-        height: 2.75rem;
-    }
+    width: rem(30px);
+    margin-inline-end: rem(5px);
 }
 
 
 .m-a{
     margin: auto;
 }
+.loader-progress {
+    width: 120px;
+    height: 20px;
+    border-radius: 20px;
+    background:
+     linear-gradient(orange 0 0) 0/0% no-repeat
+     lightblue;
+    animation: l2 2s infinite steps(10);
+  }
+  @keyframes l2 {
+      100% {background-size:110%}
+  }

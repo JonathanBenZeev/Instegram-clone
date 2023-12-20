@@ -17,9 +17,10 @@ export function storyReducer(state = initialState, action = {} as StoryAction) {
         stories: action.stories,
       }
     case StoryActionType.ADD_STORY:
+     
       return {
         ...state,
-        stories: [...state.stories!, action.story],
+        stories: [action.story,...state.stories!],
       }
     case StoryActionType.REMOVE_STORY:
       return {
@@ -28,6 +29,7 @@ export function storyReducer(state = initialState, action = {} as StoryAction) {
       }
     case StoryActionType.UPDATE_STORY:
       return {
+        
         ...state,
         stories: state.stories!.map((story) =>
           story._id === action.story._id ? action.story : story

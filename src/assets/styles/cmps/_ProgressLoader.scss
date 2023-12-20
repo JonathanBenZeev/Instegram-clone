@@ -1,0 +1,17 @@
+/* HTML: <div class="loader"></div> */
+
+.loader-progress-wrapper {
+  width: 520px;
+  height: 520px;
+  .loader-progress {
+    margin-inline-start:10px ;
+    // width: 520px important;
+    background: linear-gradient(orange 0 0) 0/0% no-repeat lightblue;
+    animation: l2 2s infinite steps(10);
+  }
+  @keyframes l2 {
+    100% {
+      background-size: 110%;
+    }
+  }
+}

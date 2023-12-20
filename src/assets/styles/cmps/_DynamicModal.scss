@@ -10,7 +10,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.729);
+  .modal-close-btn-out {
+    position: absolute;
+    right: rem(25px);
+    top: rem(15px);
+    color: #fff;
+    cursor: pointer;
+  }
   .dynamic-modal {
     background-color: #fff;
     position: fixed;
@@ -19,13 +26,12 @@
     transform: translate(-50%, -50%);
     display: grid;
     place-content: center;
-    border-radius: 5px;
-    width: 400px;
-    
+    border-radius: 10px;
+    // width: 400px;
   }
   .modal-header-wrapper {
     .modal-header {
-      width: 400px;
+      // width: 400px;
       height: 50px;
       display: flex;
       align-items: center;
@@ -38,6 +44,17 @@
       .modal-close-btn {
         margin-inline-end: 10px;
         cursor: pointer;
+        // color:  #2c2c2c;
+        svg {
+          font-weight: 100;
+          color: #454545;
+          line {
+            stroke-width: 2px;
+          }
+          polyline {
+            stroke-width: 2px;
+          }
+        }
       }
       border-block-end: 1px solid rgba(95, 94, 94, 0.572);
     }

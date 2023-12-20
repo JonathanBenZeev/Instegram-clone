@@ -17,7 +17,16 @@ export interface Story {
   _id: string
   txt: string
   imgUrl: string
-  by: MiniUser
+  by: MiniUser |null
+  loc?: Location
+  comments: Comment[]
+  likedBy: MiniUser[]
+  tags: string[]
+}
+export interface StoryToSave {
+  txt: string
+  imgUrl: string
+  by: MiniUser |null
   loc?: Location
   comments: Comment[]
   likedBy: MiniUser[]

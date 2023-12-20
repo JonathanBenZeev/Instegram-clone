@@ -1,0 +1,31 @@
+.create-post-modal {
+  width: 528px;
+  padding: 0;
+  &.desc-header {
+    width: 860px;
+  }
+  header {
+    // display: grid;
+    // place-content: center;
+    height: 50px;
+    width: 100%;
+    border-block-end: 0.2px solid rgba(128, 127, 127, 0.33);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .back-arrow{
+      margin-inline-start: 10px;
+      cursor: pointer;
+    }
+    .share-btn{
+    margin-inline-end: 10px;
+    color: rgb(0 149 246);
+    font-weight: 600;
+    cursor: pointer;
+    }
+  }
+}

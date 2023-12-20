@@ -57,10 +57,12 @@ export function StoryIndex() {
   }
 
   if (!stories) return <div>Loading...</div>
+  console.log(stories);
+  
   return (
     <section className='story-index'>
       {isModalOpen && <ActionModal onCloseModal={onCloseActionModal} />}
-      {dynamicModalProps.isOpen && (
+      {dynamicModalProps.isOpen && likedByUser&& (
         <DynamicModal
           modalTitle={dynamicModalProps.modalTitle}
           onCloseDynamicModal={onCloseDynamicModal}

@@ -1,0 +1,19 @@
+.footer-side-bar{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    margin: 0 auto;
+    width: rem(319px);
+    .user-preview {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .img-container{
+            display: flex;
+            .user-details{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

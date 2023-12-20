@@ -35,8 +35,10 @@ function post<T extends { _id: string }>(
   newEntity: T
 ): Promise<T> {
   newEntity = { ...newEntity, _id: _makeId() }
+  console.log(newEntity);
+  
   return query<T>(entityType).then((entities) => {
-    entities.push(newEntity)
+    entities.unshift(newEntity)
     _save(entityType, entities)
     return newEntity
   })
