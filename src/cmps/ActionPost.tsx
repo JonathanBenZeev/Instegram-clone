@@ -13,22 +13,22 @@ export interface ActionPostProps {
 }
 
 export const ActionPost = ({ story, user, onSaveStory }: ActionPostProps) => {
-    const setLike = () => {
-        if (!user) return
-    
-        const isLiked = story.likedBy.some((like) => like._id === user?._id)
-        if (isLiked)
-          story.likedBy = story.likedBy.filter((like) => like._id !== user?._id)
-        else
-          story.likedBy.push({
-            _id: user?._id,
-            fullname: user?.fullname,
-            imgUrl: user?.imgUrl,
-            username: user.username,
-          })
-    
-        onSaveStory(story)
-      }
+  const setLike = () => {
+    if (!user) return
+
+    const isLiked = story.likedBy.some((like) => like._id === user?._id)
+    if (isLiked)
+      story.likedBy = story.likedBy.filter((like) => like._id !== user?._id)
+    else
+      story.likedBy.push({
+        _id: user?._id,
+        fullname: user?.fullname,
+        imgUrl: user?.imgUrl,
+        username: user.username,
+      })
+
+    onSaveStory(story)
+  }
   function getLikeSvg() {
     return story.likedBy.some((like) => like._id === user?._id) ? (
       <RedHeartSvg />
@@ -38,24 +38,30 @@ export const ActionPost = ({ story, user, onSaveStory }: ActionPostProps) => {
   }
   return (
     <div className='action-post flex column'>
-      <div className='like-container'>
-        <div className='start-actions'>
-          <span className='like-btn' onClick={setLike}>
-            {getLikeSvg()}
-          </span>
-          <span className='message-btn'>
-            <MessageSvg />
-          </span>
-          <span className='post-btn'>
-            <PostSvg />
-          </span>
+      <section className='likes-wrapper'>
+        <div className='like-container'>
+          <div className='start-actions'>
+            <span className='like-btn' onClick={setLike}>
+              {getLikeSvg()}
+            </span>
+            <span className='message-btn'>
+              <MessageSvg />
+            </span>
+            <span className='post-btn'>
+              <PostSvg />
+            </span>
+          </div>
+          <div className='end-actions'>
+            <span className='save-btn'>
+              <SaveSvg />
+            </span>
+          </div>
         </div>
-        <div className='end-actions'>
-          <span className='save-btn'>
-            <SaveSvg />
-          </span>
+        <div className='likes'>
+          <span>{story.likedBy.length}</span>
+          <p>likes</p>
         </div>
-      </div>
+      </section>
       <div>comment</div>
     </div>
   )

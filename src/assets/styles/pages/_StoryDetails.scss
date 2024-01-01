@@ -91,6 +91,8 @@
       }
 
       .post-body {
+        border-block-end: rem(1px) solid rgba(104, 102, 102, 0.397);
+
         flex: 1;
 
         .post-title {
