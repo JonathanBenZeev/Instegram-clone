@@ -32,8 +32,9 @@ export const StoryDetails = () => {
     }
   }
 
-  async function onSaveStory(story: Story) {
-    await updateStory(story)
+  async function onSaveStory(updatedStory: Story) {
+    await updateStory(updatedStory)
+    setStory({...updatedStory })
   }
   const onCloseModal = () => {
     setIsModalOpen(false)

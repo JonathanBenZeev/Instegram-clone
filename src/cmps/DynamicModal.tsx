@@ -2,7 +2,7 @@ import { MiniUser } from '../interfaces/user'
 import { CreatePostModal } from './CreatePostModal'
 import { LikesModal } from './LikesModal'
 import { ExitSvg } from './Svg'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export interface DynamicModalProps {
   modalTitle: string
@@ -16,17 +16,17 @@ export const DynamicModal = ({
   likedByStory,
 }: DynamicModalProps) => {
   const [modalWidth, setModalWidth] = useState<string | null>(null)
-
-  // useEffect(() => {
-  //   modalTitle === 'Likes' ? setModalWidth('400px') : setModalWidth('528px')
-  // }, [])
-
   const getCmp = () => {
     switch (modalTitle) {
       case 'Likes':
         return <LikesModal likedByStory={likedByStory!} />
       case 'Create new post':
-        return <CreatePostModal changeModalWidth={changeModalWidth}  onCloseDynamicModal={onCloseDynamicModal}/>
+        return (
+          <CreatePostModal
+            changeModalWidth={changeModalWidth}
+            onCloseDynamicModal={onCloseDynamicModal}
+          />
+        )
       default:
         return <LikesModal likedByStory={likedByStory!} />
     }
@@ -41,7 +41,6 @@ export const DynamicModal = ({
     modalTitle === 'Likes' ? '400px' : '528px'
   }
 
-  // if (!modalWidth) return <h1>Loading..</h1>
   return (
     <section className='dynamic-modal-wrapper' onClick={onCloseDynamicModal}>
       <div onClick={(ev) => ev.stopPropagation()}>
@@ -50,15 +49,7 @@ export const DynamicModal = ({
             <ExitSvg />
           </span>
         )}
-        <section
-          className='dynamic-modal'
-          style={
-            // modalTitle === 'Likes'
-            //   ? { width: modalWidth }
-            //   : { width: modalWidth }
-            { width: getModalWidth() }
-          }
-        >
+        <section className='dynamic-modal' style={{ width: getModalWidth() }}>
           {modalTitle === 'Likes' && (
             <div className='modal-header-wrapper'>
               <div
@@ -78,8 +69,6 @@ export const DynamicModal = ({
             </div>
           )}
           <div className='modal-content-wrapper'>{getCmp()}</div>
-          {/* <div style={modalTitle === 'Menu' ? {maxHeight:'448px'} : {}} className="modal-content-wrapper">{modalTypeToOpen}</div> */}
-          {/* <div className='modal-content-wrapper'>{modalTypeToOpen}</div> */}
         </section>
       </div>
     </section>

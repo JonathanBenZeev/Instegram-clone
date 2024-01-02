@@ -29,7 +29,6 @@ export function storyReducer(state = initialState, action = {} as StoryAction) {
       }
     case StoryActionType.UPDATE_STORY:
       return {
-        
         ...state,
         stories: state.stories!.map((story) =>
           story._id === action.story._id ? action.story : story

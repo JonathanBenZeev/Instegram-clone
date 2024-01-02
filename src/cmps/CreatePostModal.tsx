@@ -7,7 +7,7 @@ import { CreatePostStage } from '../shared/type'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 import { BackSvg } from './Svg'
-import { updateStory } from '../store/actions/story/story.actions'
+import { addStory } from '../store/actions/story/story.actions'
 import { ProgressLoader } from './ProgressLoader'
 export interface CreatePostModalProps {
   changeModalWidth: (modalWidth: string) => void
@@ -63,7 +63,7 @@ export const CreatePostModal = ({
   }
 
   const sharePost = async () => {
-    await updateStory(post)
+    await addStory(post)
     onCloseDynamicModal()
   }
 

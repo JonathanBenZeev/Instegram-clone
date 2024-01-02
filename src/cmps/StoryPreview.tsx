@@ -20,8 +20,7 @@ export interface StoryPreviewProps {
   onSaveStory: (story: Story) => Promise<void>
   onOpenModal: () => void
   onOpenLikesModal: () => void
-  getLikedByStory:(likedByStory:MiniUser[])=>void
-
+  getLikedByStory: (likedByStory: MiniUser[]) => void
 }
 export function StoryPreview({
   story,
@@ -30,8 +29,7 @@ export function StoryPreview({
   onSaveStory,
   onOpenModal,
   onOpenLikesModal,
-  getLikedByStory
-
+  getLikedByStory,
 }: StoryPreviewProps) {
   const [storyComment, setStoryComment] = useState<string>('')
 
@@ -68,9 +66,9 @@ export function StoryPreview({
     )
   }
 
+  if (!story) return <h1>Loading...</h1>
   const { by, comments, imgUrl } = story
   // console.log(imgUrl)
-
   return (
     <article className='story-preview'>
       <div className='story-header'>
@@ -109,9 +107,11 @@ export function StoryPreview({
           </span>
         </div>
       </section>
-      <div className='likes' onClick={()=>getLikedByStory(story.likedBy)}>
+      <div className='likes' onClick={() => getLikedByStory(story.likedBy)}>
         <span>{story.likedBy.length}</span>
-        <p>likes</p>
+        <p>
+          {story.likedBy.length && story.likedBy.length >= 2 ? 'Likes' : 'Like'}
+        </p>
       </div>
       <div className='post-headline'>
         <span className='story-name'>{by.username}</span>

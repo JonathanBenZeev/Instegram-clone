@@ -33,6 +33,18 @@ export async function removeStory(storyId: string) {
 export async function updateStory(savedStory:Story) {
     try {
        const story= await storyService.save(savedStory)
+        store.dispatch<UpdateStoryAction>({
+            type: StoryActionType.UPDATE_STORY,
+            story
+        })
+    } catch (error) {
+        console.log('error:', error)
+    }
+
+}
+export async function addStory(newStory:Story) {
+    try {
+       const story= await storyService.save(newStory)
         store.dispatch<AddStoryAction>({
             type: StoryActionType.ADD_STORY,
             story

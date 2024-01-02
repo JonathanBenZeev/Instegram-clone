@@ -60,7 +60,7 @@ export const ActionPost = ({ story, user, onSaveStory }: ActionPostProps) => {
         <div className='likes'>
           <span>{story.likedBy.length}</span>
           <p>
-            {story.likedBy.length || story.likedBy.length > 1
+            {story.likedBy.length && story.likedBy.length >=2
               ? 'Likes'
               : 'Like'}
           </p>
