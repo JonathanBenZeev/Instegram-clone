@@ -10,9 +10,10 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 import { Story } from '../interfaces/story'
 import { Outlet } from 'react-router-dom'
-import { ActionModal } from '../cmps/ActionModal'
+import { ActionModal } from '../cmps/shared/ActionModal'
 import { DynamicModal } from '../cmps/DynamicModal'
 import { MiniUser } from '../interfaces/user'
+
 
 export interface ModalType {
   isOpen: boolean
@@ -39,6 +40,8 @@ export function StoryIndex() {
     await updateStory(story)
   }
 
+
+
   const onCloseDynamicModal = () => {
     setDynamicModalProps((prevState) => ({ ...prevState, isOpen: false }))
   }
@@ -57,7 +60,7 @@ export function StoryIndex() {
   }
 
   if (!stories) return <div>Loading...</div>
-  console.log(stories);
+  console.log(user);
   
   return (
     <section className='story-index'>
@@ -67,6 +70,7 @@ export function StoryIndex() {
           modalTitle={dynamicModalProps.modalTitle}
           onCloseDynamicModal={onCloseDynamicModal}
           likedByStory={likedByUser}
+
         />
       )}
 

@@ -1,13 +1,14 @@
 import { MiniUser } from '../interfaces/user'
 import { CreatePostModal } from './CreatePostModal'
-import { LikesModal } from './LikesModal'
-import { ExitSvg } from './Svg'
+import { LikesModal } from './shared/LikesModal'
+import { ExitSvg } from './shared/Svg'
 import { useState } from 'react'
 
 export interface DynamicModalProps {
   modalTitle: string
   onCloseDynamicModal: () => void
   likedByStory?: MiniUser[]
+
 }
 
 export const DynamicModal = ({

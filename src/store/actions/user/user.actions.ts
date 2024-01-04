@@ -5,6 +5,7 @@ import {
   SpendBalanceAction,
   UserActionType,
   SignupAction,
+  UpdateAction,
 } from './interfaces'
 import { User } from '../../../interfaces/user'
 
@@ -40,6 +41,19 @@ export async function signup(credentials: User) {
     const user = await userService.signup(credentials)
     store.dispatch<SignupAction>({
       type: UserActionType.SET_USER,
+      user,
+    })
+    return user
+  } catch (err) {
+    console.log('Cannot signup', err)
+    throw err
+  }
+}
+export async function updateUser(user: User) {
+  try {
+    await userService.update(user)
+    store.dispatch<UpdateAction>({
+      type: UserActionType.UPDATE_USER,
       user,
     })
     return user

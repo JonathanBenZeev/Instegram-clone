@@ -1,5 +1,5 @@
 import { FC ,useState} from 'react'
-import { HomeSvg,SearchSvg ,ExploreSvg,ReelsSvg,MessageSvg,HeartSvg,CreateSvg} from './Svg'
+import { HomeSvg,SearchSvg ,ExploreSvg,ReelsSvg,MessageSvg,HeartSvg,CreateSvg} from './shared/Svg'
 import { DynamicModal } from './DynamicModal'
 import { ModalType } from '../pages/StoryIndex'
 

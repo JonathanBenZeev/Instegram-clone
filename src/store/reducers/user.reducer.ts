@@ -20,6 +20,11 @@ export function userReducer(state = initialState, action = {} as UserAction) {
         ...state,
         loggedInUser: action.user,
       }
+    case UserActionType.UPDATE_USER:
+      return {
+        ...state,
+        loggedInUser: action.user,
+      }
     default:
       return state
   }

@@ -1,6 +1,6 @@
 import { Story } from '../interfaces/story'
 import { User } from '../interfaces/user'
-import { HeartSvg, MessageSvg, PostSvg, RedHeartSvg, SaveSvg } from './Svg'
+import { HeartSvg, MessageSvg, PostSvg, RedHeartSvg, SaveSvg } from './shared/Svg'
 
 export interface ActionPostProps {
   user: User | null

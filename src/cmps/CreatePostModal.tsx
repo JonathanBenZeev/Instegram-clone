@@ -6,7 +6,7 @@ import { uploadImg } from '../services/upload.service'
 import { CreatePostStage } from '../shared/type'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-import { BackSvg } from './Svg'
+import { BackSvg } from './shared/Svg'
 import { addStory } from '../store/actions/story/story.actions'
 import { ProgressLoader } from './ProgressLoader'
 export interface CreatePostModalProps {

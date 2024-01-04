@@ -9,7 +9,7 @@ import {
   SaveSvg,
   ActionSvg,
   RedHeartSvg,
-} from './Svg'
+} from './shared/Svg'
 import { useState } from 'react'
 import { MiniUser, User } from '../interfaces/user'
 import { storyService } from '../services/story.service'

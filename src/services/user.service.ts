@@ -13,6 +13,7 @@ export const userService = {
   getUsers,
   getById,
   remove,
+  update,
 }
 
 // window.userService= userService
@@ -33,16 +34,14 @@ function remove(userId: string) {
   // return httpService.delete(`user/${userId}`)
 }
 
-// async function update({ _id, score }) {
-//   const user = await storageService.get('user', _id)
-//   user.score = score
-//   await storageService.put('user', user)
+async function update(user: User) {
+  await storageService.put('user', user)
 
-//   // const user = await httpService.put(`user/${_id}`, {_id, score})
-//   // // Handle case in which admin updates other user's details
-//   if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-//   return user
-// }
+  // const user = await httpService.put(`user/${_id}`, {_id, score})
+  // // Handle case in which admin updates other user's details
+  // if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+  // return user
+}
 
 async function login(userCred: User) {
   const users = await getUsers()
@@ -65,7 +64,7 @@ async function signup(userCred: User) {
     {
       _id: 'u106',
       fullname: 'Dob',
-      username:'fdsfds',
+      username: 'fdsfds',
       imgUrl: 'http://some-img',
     },
   ]

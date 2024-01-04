@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { DragSvg } from './Svg'
+import { DragSvg } from './shared/Svg'
 interface UploadImgPostProps {
   handelImg: (imageUrl:File)=>void
 }

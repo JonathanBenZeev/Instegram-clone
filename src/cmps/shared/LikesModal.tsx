@@ -1,13 +1,17 @@
 import { useSelector } from 'react-redux'
-import { MiniUser } from '../interfaces/user'
-import { RootState } from '../store/store'
+
+import { MiniUser, User } from '../../interfaces/user'
+import { RootState } from '../../store/store'
+import { updateUser } from '../../store/actions/user/user.actions'
 
 export interface likesModalProps {
   likedByStory: MiniUser[]
 }
 
 export function LikesModal({ likedByStory }: likesModalProps) {
-  const user = useSelector((state: RootState) => state.userModule.loggedInUser)
+  const user: User | null = useSelector(
+    (state: RootState) => state.userModule.loggedInUser
+  )
 
   function getSortByFollowing() {
     likedByStory.sort((likedBy) => {
@@ -18,6 +22,26 @@ export function LikesModal({ likedByStory }: likesModalProps) {
     return likedByStory.filter((like) => like._id !== user?._id)
   }
 
+  async function onSaveUser(likedBy: MiniUser) {
+    console.log(likedBy._id)
+
+    if (!user) return
+    const userToUpdate: User = {
+      ...user,
+    }
+
+    if (!userToUpdate.following?.some((follow) => follow._id === likedBy._id)) {
+      userToUpdate.following?.push(likedBy)
+    } else {
+      const likeIdx = userToUpdate.following?.findIndex(
+        (follow) => follow._id === likedBy._id
+      )
+      userToUpdate.following.splice(likeIdx, 1)
+    }
+
+    await updateUser(userToUpdate)
+  }
+
   const getBtn = (likedBy: MiniUser) => {
     const isFollowing = user?.following?.some(
       (user) => user._id === likedBy._id
@@ -26,7 +50,9 @@ export function LikesModal({ likedByStory }: likesModalProps) {
       : false
     return (
       <div className={`follow-action ${isFollowing ? 'following' : ''}`}>
-        <span>{isFollowing ? 'Following' : 'Follow'}</span>
+        <span onClick={() => onSaveUser(likedBy)}>
+          {isFollowing ? 'Following' : 'Follow'}
+        </span>
       </div>
     )
   }
