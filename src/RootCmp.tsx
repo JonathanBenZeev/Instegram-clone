@@ -5,10 +5,11 @@ import { StoryIndex } from './pages/StoryIndex'
 import { SideBar } from './cmps/SideBar'
 import { LoginSignup } from './pages/LoginSignup'
 import { StoryDetails } from './pages/StoryDetails'
-import { FooterSideBar } from './cmps/FooterSideBar'
+import { UserDetails } from './pages/UserDetails'
 // import './App.css'
 
 export const RootCmp: FC = () => {
+  
   return (
     <div className='main-container'>
       <SideBar />
@@ -19,11 +20,12 @@ export const RootCmp: FC = () => {
           </Route>
           {/* <Route path='/' element={<HomePage />} /> */}
           <Route path='/' element={<StoryIndex />} />
+          <Route path=':username' element={<UserDetails />} />
           <Route path='/signup' element={<LoginSignup />} />
           <Route path='/login' element={<LoginSignup />} />
         </Routes>
       </main>
-      <FooterSideBar/>
+     
     </div>
   )
 }

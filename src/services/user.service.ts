@@ -1,4 +1,4 @@
-import { User } from '../interfaces/user'
+import { MiniUser, User } from '../interfaces/user'
 import { storageService } from './async-storage.service'
 // import { httpService } from './http.service'
 
@@ -14,6 +14,7 @@ export const userService = {
   getById,
   remove,
   update,
+  getByUsername
 }
 
 // window.userService= userService
@@ -26,6 +27,17 @@ async function getUsers(): Promise<User[]> {
 async function getById(userId: string): Promise<User> {
   //   if (!userId) return null
   return await storageService.get('user', userId)
+  // const user = await httpService.get(`user/${userId}`)
+}
+async function getByUsername(username: string): Promise<User|null>{
+  //   if (!userId) return null
+  
+   const users= await storageService.query<User>('user')
+   const user = users.find((u) => u.username === username)
+   if (user) {
+   return Promise.resolve(user)
+   }else return null
+
   // const user = await httpService.get(`user/${userId}`)
 }
 
@@ -43,7 +55,7 @@ async function update(user: User) {
   // return user
 }
 
-async function login(userCred: User) {
+async function login(userCred: MiniUser) {
   const users = await getUsers()
   // if (!users || !users.length) return
   const user = users.find((u) => u.username === userCred.username)
@@ -54,7 +66,7 @@ async function login(userCred: User) {
   return Promise.resolve(user)
 }
 
-async function signup(userCred: User) {
+async function signup(userCred:User) {
   if (!userCred.imgUrl)
     userCred.imgUrl =
       'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
@@ -69,6 +81,7 @@ async function signup(userCred: User) {
     },
   ]
   userCred.savedStoryIds = []
+  userCred.myStoryIds = []
 
   const user = await storageService.post('user', userCred)
   // const user = await httpService.post('auth/signup', userCred)

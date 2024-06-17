@@ -15,6 +15,7 @@ import { ActionModal } from '../cmps/shared/ActionModal'
 import { DynamicModal } from '../cmps/DynamicModal'
 import { MiniUser } from '../interfaces/user'
 import { PreviewLoader } from '../cmps/shared/PreviewLoader'
+import { FooterSideBar } from '../cmps/FooterSideBar'
 
 export interface ModalType {
   isOpen: boolean
@@ -62,7 +63,6 @@ export function StoryIndex() {
   }
 
   if (!stories) return <PreviewLoader/>
-  console.log(user)
  
   return (
     <section className='story-index'>
@@ -87,6 +87,7 @@ export function StoryIndex() {
       />
       <Outlet />
       {/* <div>Another thing</div> */}
+       <FooterSideBar />
     </section>
   )
 }

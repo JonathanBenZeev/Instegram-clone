@@ -1,4 +1,4 @@
-import { Story, storyFilter, Comment, StoryToSave } from '../interfaces/story'
+import { Story,  Comment} from '../interfaces/story'
 import { User } from '../interfaces/user'
 import { storageService } from './async-storage.service'
 import { utilService } from './util.service'
@@ -8,8 +8,8 @@ export const storyService = {
   save,
   remove,
   getById,
-  createstory,
-  getDefaultFilter,
+  // createstory,
+  // getDefaultFilter,
   getNextstoryId,
   makeComment,
   getDefaultPost
@@ -62,13 +62,13 @@ function getDefaultPost(): Story {
   }
 }
 
-function createstory(model = '', type = ''): Partial<Story> {
-  return {
-    model,
-    type,
-    batteryStatus: 100,
-  }
-}
+// function createstory(model = '', type = ''): Partial<Story> {
+//   return {
+//     model,
+//     type,
+//     batteryStatus: 100,
+//   }
+// }
 
 async function getNextstoryId(storyId: string) {
   const stories = await storageService.query<Story>(STORAGE_KEY)
@@ -78,14 +78,14 @@ async function getNextstoryId(storyId: string) {
   return stories[nextIdx]._id
 }
 
-function getDefaultFilter(): storyFilter {
-  return {
-    model: '',
-    type: '',
-    minBattery: 0,
-    maxBattery: 0,
-  }
-}
+// function getDefaultFilter(): storyFilter {
+//   return {
+//     model: '',
+//     type: '',
+//     minBattery: 0,
+//     maxBattery: 0,
+//   }
+// }
 
 function makeComment(comment: string, user: User): Comment {
   return {

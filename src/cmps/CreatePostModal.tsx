@@ -9,6 +9,7 @@ import { RootState } from '../store/store'
 import { BackSvg } from './shared/Svg'
 import { addStory } from '../store/actions/story/story.actions'
 import { ProgressLoader } from './ProgressLoader'
+import { updateUser } from '../store/actions/user/user.actions'
 export interface CreatePostModalProps {
   changeModalWidth: (modalWidth: string) => void
   onCloseDynamicModal: () => void
@@ -63,7 +64,9 @@ export const CreatePostModal = ({
   }
 
   const sharePost = async () => {
-    await addStory(post)
+    const newPost = await addStory(post)
+    if (newPost) user?.myStoryIds.push(newPost._id)
+    await updateUser(user!)
     onCloseDynamicModal()
   }
 
@@ -76,9 +79,8 @@ export const CreatePostModal = ({
 
   return (
     <div
-      className={`create-post-modal ${
-        postStage === CreatePostStage.DescCreateStage ? 'desc-header' : ''
-      }`}
+      className={`create-post-modal ${postStage === CreatePostStage.DescCreateStage ? 'desc-header' : ''
+        }`}
     >
       <header>
         <span className='back-arrow' onClick={getBack}>

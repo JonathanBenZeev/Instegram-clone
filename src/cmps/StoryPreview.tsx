@@ -73,9 +73,9 @@ export function StoryPreview({
     <article className='story-preview'>
       <div className='story-header'>
         <div className='by-user'>
-          <img src={by.imgUrl} alt='profile' />
+          <img src={by?.imgUrl} alt='profile' />
           <Link to={by.username} className='story-user-name link'>
-            {by.username}
+            {by?.username}
           </Link>
           <div className='time'>
             <span>•</span>

@@ -8,13 +8,13 @@ export interface User {
   following?: MiniUser[]
   followers?: MiniUser[]
   savedStoryIds?: string[]
-  
+  myStoryIds: string[]
 }
 export interface MiniUser {
-    _id: string
-    fullname: string
-    username: string
-    imgUrl?: string
+  _id: string
+  fullname: string
+  username: string
+  imgUrl?: string
 }
 
 export interface UserMsg {

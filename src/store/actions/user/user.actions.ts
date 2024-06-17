@@ -7,7 +7,7 @@ import {
   SignupAction,
   UpdateAction,
 } from './interfaces'
-import { User } from '../../../interfaces/user'
+import { MiniUser, User } from '../../../interfaces/user'
 
 export async function spendBalance(amount: number) {
   try {
@@ -20,7 +20,7 @@ export async function spendBalance(amount: number) {
   }
 }
 
-export async function login(credentials: User) {
+export async function login(credentials:MiniUser) {
   try {
     const user = await userService.login(credentials)
     if (!user) return
@@ -36,7 +36,7 @@ export async function login(credentials: User) {
   }
 }
 
-export async function signup(credentials: User) {
+export async function signup(credentials:any) {
   try {
     const user = await userService.signup(credentials)
     store.dispatch<SignupAction>({
@@ -56,9 +56,11 @@ export async function updateUser(user: User) {
       type: UserActionType.UPDATE_USER,
       user,
     })
-    return user
-  } catch (err) {
-    console.log('Cannot signup', err)
-    throw err
+  return user
+    } catch (err) {
+      console.log('Cannot signup', err)
+      throw err
+    }
   }
-}
+
+
